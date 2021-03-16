@@ -78,6 +78,17 @@ public class TechBeaconSampleProject {
     // firstname field'indaki value'yu almis(extract) etmis olduk.
     @Test
     public void getCheckInDate() {
+
+        String checkInDate = given()
+                .baseUri("https://restful-booker.herokuapp.com")
+                .basePath("/booking/1")
+                .get()
+                .then()
+                .statusCode(200)
+                .extract()
+                .path("bookingdates.checkin");
+
+        System.out.println("checkInDate = " + checkInDate);
         String firstname = given()
                 .baseUri("https://restful-booker.herokuapp.com")
                 .basePath("/booking/1")
