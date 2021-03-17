@@ -123,7 +123,7 @@ public class TechBeaconSampleProject {
         System.out.println("token = " + token);
 
         //verifying response token
-        Assertions.assertTrue(token=="123");
+        Assertions.assertTrue(token == "123");
     }
 
     // Verifying response data
@@ -169,6 +169,8 @@ public class TechBeaconSampleProject {
                 .basePath("/pet/{petId}/uploadImage")
                 .pathParam("petId", 12121212)
                 .multiPart(new File("src/test/resources/mavi.jpeg"))
+                .log()
+                .all()
                 .post()
                 //.post("https://petstore.swagger.io/v2/pet/12121212/uploadImage")
                 .then()
